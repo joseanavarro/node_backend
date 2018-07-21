@@ -26,6 +26,7 @@ http://SERVER/client/id/:clientId
 For example: http://localhost:3000/client/id/55601290-8619-4f54-b831-9c6c26c52b44
 
 --> avalible for 'user' and 'admin' roles
+
 -----------------------------------------------------------------------------------------------------
 Get user data filtered by user name:
 http://SERVER/client/name/:userName
