@@ -1,5 +1,5 @@
 
-# Installm de app
+# Install de app
 
 git clone
 npm install
