@@ -1,0 +1,166 @@
+swagger: "2.0"
+info:
+ version: "2.0.2"
+ title: "Clients Policies API"
+ description: "A short API doc describes some of the endpoints for the 'Clients Policies' API through the Swagger specification"
+ termsOfService: "http://swagger.io/terms/"
+ contact:
+   name: "Jose A. Navarro"
+   email: "janavgar@gmail.com"
+   url: "https://github.com/joseanavarro"
+ license:
+   name: "MIT"
+   url: "http://opensource.org/licenses/MIT"
+host: "http://localhost:3000/"
+schemes:
+ - "https"
+consumes:
+ - "application/json"
+produces:
+ - "application/json"
+paths:
+ /client/id/{id}:
+   get:
+     tags:
+       - "Client"
+     description: "Get user data filtered by user id"
+     operationId: "getClientById"
+     produces:
+       - "json"
+     parameters:
+       -
+         name: "id"
+         in: "query"
+         description: "Identity of the client"
+         required: true
+         type: "string"
+     responses:
+       200:
+         description: "client response"
+         schema:
+           type: object
+           properties:
+             id:
+               type: string
+               description: Identity of the client.
+             name:
+               type: string
+               description: name of the client.
+             email:
+               type: string
+               description: email of the client.
+             role:
+               type: string
+               description: role of the client.
+ /client/name/{name}:
+   get:
+     tags:
+       - "ClientName"
+     description: "Get user data filtered by user name."
+     operationId: "getClientByName"
+     produces:
+       - "application/json"
+     parameters:
+       -
+         name: "name"
+         in: "query"
+         description: "Name of the client."
+         required: true
+         type: "string"
+     responses:
+       200:
+         description: "client response"
+         schema:
+           type: object
+           properties:
+             id:
+               type: string
+               description: Identity of the client.
+             name:
+               type: string
+               description: name of the client.
+             email:
+               type: string
+               description: email of the client.
+             role:
+               type: string
+               description: role of the client.
+ /policy/name/{name}:
+   get:
+     tags:
+       - "PolicyName"
+     description: "Get the list of policies linked to a user name."
+     operationId: "getPoliciesByName"
+     produces:
+       - "application/json"
+     parameters:
+       -
+         name: "name"
+         in: "query"
+         description: "Name of the client."
+         required: true
+         type: "string"
+     responses:
+       200:
+         description: "policies response"
+         schema:
+           type: array
+                items: 
+                  type: object
+                    properties:
+                      id:
+                        type: string
+                        description: Identity of the policy.
+                      amountInsured:
+                        type: long
+                        description: Amount insured.
+                      email:
+                        type: string
+                        description: email of the client.
+                      inceptionDate:
+                        type: string
+                        description: Inception date.
+                      installmentPayment:
+                        type: boolean
+                        description: Installment Payment.
+                      clientId:
+                        type: string
+                        description: Identity of the client.
+ /policy/id/{id}:
+   get:
+     tags:
+       - "PolicyName"
+     description: "Get the user linked to a policy number."
+     operationId: "getClientByName"
+     produces:
+       - "application/json"
+     parameters:
+       -
+         name: "id"
+         in: "query"
+         description: "Identity of the policy."
+         required: true
+         type: "string"
+     responses:
+       200:
+         description: "client response"
+         schema:
+           type: object
+           properties:
+             id:
+               type: string
+               description: Identity of the client.
+             name:
+               type: string
+               description: name of the client.
+             email:
+               type: string
+               description: email of the client.
+             role:
+               type: string
+               description: role of the client.
+securityDefinitions:
+  UserSecurity:
+    type: basic
+  AdminSecurity:
+    type: basic

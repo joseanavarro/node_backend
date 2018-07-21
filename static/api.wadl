@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://wadl.dev.java.net/2009/02" xmlns:tns="https://http://localhost:3000/schemas">
+  <doc title="Clients Policies API" xml:lang="en">A short API doc describes some of the endpoints for the 'Clients Policies' API through the Swagger specification</doc>
+  <grammars>
+    <xs:schema xmlns:tns="https://http://localhost:3000/schemas" targetNamespace="https://http://localhost:3000/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getClientByIdResponse" type="tns:getClientByIdResponse" />
+      <xs:element name="getClientByNameResponse" type="tns:getClientByNameResponse" />
+      <xs:complexType name="getClientByIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Identity of the client.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="name">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>name of the client.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="email">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>email of the client.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="role">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>role of the client.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getClientByNameResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Identity of the client.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="name">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>name of the client.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="email">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>email of the client.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="role">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>role of the client.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </grammars>
+  <resources base="https://http://localhost:3000/">
+    <resource id="_clientidid" path="/client/id/{id}">
+      <param name="id" style="template" type="xsd:string" default="" required="true">
+        <doc title="id" xml:lang="en">Identity of the client</doc>
+      </param>
+      <method id="getClientById" name="GET">
+        <doc title="getClientById" xml:lang="en">Get user data filtered by user id</doc>
+        <request />
+        <response status="200">
+          <representation element="tns:getClientByIdResponse" mediaType="application/json" />
+        </response>
+      </method>
+    </resource>
+    <resource id="_clientnamename" path="/client/name/{name}">
+      <param name="name" style="template" type="xsd:string" default="" required="true">
+        <doc title="name" xml:lang="en">Name of the client.</doc>
+      </param>
+      <method id="getClientByName" name="GET">
+        <doc title="getClientByName" xml:lang="en">Get user data filtered by user name.</doc>
+        <request />
+        <response status="200">
+          <representation element="tns:getClientByNameResponse" mediaType="application/json" />
+        </response>
+      </method>
+    </resource>
+    <resource id="_policyidid" path="/policy/id/{id}">
+      <param name="id" style="template" type="xsd:string" default="" required="true">
+        <doc title="id" xml:lang="en">Identity of the policy.</doc>
+      </param>
+      <method id="getClientByName2" name="GET">
+        <doc title="getClientByName" xml:lang="en">Get the user linked to a policy number.</doc>
+        <request />
+        <response status="200">
+          <representation element="tns:getClientByNameResponse" mediaType="application/json" />
+        </response>
+      </method>
+    </resource>
+    <resource id="_policynamename" path="/policy/name/{name}">
+      <param name="name" style="template" type="xsd:string" default="" required="true">
+        <doc title="name" xml:lang="en">Name of the client.</doc>
+      </param>
+      <method id="getPoliciesByName" name="GET">
+        <doc title="getPoliciesByName" xml:lang="en">Get the list of policies linked to a user name.</doc>
+        <request />
+      </method>
+    </resource>
+  </resources>
+</application>
