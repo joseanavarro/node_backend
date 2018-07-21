@@ -2,6 +2,7 @@
 # Install de app
 
 git clone
+
 npm install
 
 # Run the app
